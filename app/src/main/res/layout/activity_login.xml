@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    tools:context=".activity.SignupActivity">
+
+    <TextView
+        android:id="@+id/signin_karma_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionName="splash_anim"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="karma"
+        android:textColor="@color/colorAccentDark"
+        android:textSize="126sp"
+        android:gravity="center"
+        android:fontFamily="@font/remachine_script"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/sign_in_with_your_account"
+        android:textColor="@color/colorAccentBlueDark"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_karma_logo" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signin_email_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/LogInInput"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="22dp"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="filled"
+        android:hint="@string/e_mail"
+        android:textColorHint="@color/colorAccentBlueDark_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signin_email_editText"
+            android:layout_width="match_parent"
+            android:textColor="@color/colorAccentBlueDark"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="48dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/signin_email_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signin_email_input"
+        app:layout_constraintTop_toTopOf="@+id/signin_email_input" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signin_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/LogInInput"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="22dp"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_email_input">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signin_password_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:textStyle="bold"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccentBlueDark"
+            android:textColorHint="@color/colorAccentBlueDark_50" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/signin_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="false"
+        app:lottie_rawRes="@raw/checkmark"
+        app:lottie_scale="0.2"
+        app:lottie_speed="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_password_input" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorAccentBlueDark_60"
+        android:textSize="14sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/remember_me"
+        app:layout_constraintStart_toEndOf="@+id/signin_checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/signin_password_input" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signin_button"
+        android:layout_width="185dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccentBlueDark"
+        android:backgroundTint="@color/colorAccentBlueDark"
+        android:fontFamily="@font/roboto"
+        android:text="@string/sign_in"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:elevation="25dp"
+        app:cornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_checkbox" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/still_don_t_have_account"
+        android:textColor="@color/colorAccentBlueDark_50"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/signup_textview"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button" />
+
+    <TextView
+        android:id="@+id/signup_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorAccentBlueLight"
+        android:textStyle="bold"
+        android:text="@string/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.738"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

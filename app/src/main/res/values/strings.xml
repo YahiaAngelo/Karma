@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Karma</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signin_email_hint">Email</string>
+    <string name="password">Password</string>
+    <string name="login_text">Login</string>
+    <string name="Register_text">First time? Click to Sign Up</string>
+    <string name="username_text">Username</string>
+    <string name="signup_text">Signup</string>
+    <string name="login_error">Email or password isn\'t correct</string>
+    <string name="exist_username_error">Username is already taken!</string>
+    <string name="exist_email_error">There\'s already user with this Email</string>
+    <string name="image_desc">image</string>
+    <string name="menu_search">Search</string>
+    <string name="add_post_hint">What\'s on your mind?</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="finish">Finish</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="app_version">4.0 beta</string>
+    <string name="changelog_text">4.0 beta : First Public Release</string>
+
+
+    <!-- Links -->
+    <string name="karmaTgChannel">https://t.me/karmaupdates</string>
+    <string name="angeloTg">https://t.me/YahiaAngelo</string>
+    <string name="angeloGithub">https://github.com/YahiaAngelo</string>
+    <string name="angeloPaypal">https://www.paypal.me/yahiamostafa</string>
+    <string name="karma_github_repo">https://github.com/YahiaAngelo/Karma</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="download">Download</string>
+    <string name="updates_check">Checking for updates...</string>
+    <string name="uptodate">Karma is already up to date!</string>
+    <string name="updates_check_failed">Failed checking for latest update!</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="follow">Follow</string>
+    <string name="user_not_found">User not found!</string>
+    <string name="version">Version</string>
+    <string name="changelog">Changelog</string>
+    <string name="links">Links</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="about_us">About us</string>
+    <string name="karma_telegram_channel">Karma Telegram channel</string>
+    <string name="yahiaangelo">YahiaAngelo</string>
+    <string name="telegram">Telegram</string>
+    <string name="github">Github</string>
+    <string name="donate">Donate</string>
+    <string name="karma_app_developer">Karma app Developer</string>
+    <string name="post">Post</string>
+    <string name="write_a_comment">Write a comment...</string>
+    <string name="sign_in_with_your_account">Sign in with your account.</string>
+    <string name="e_mail">E-mail</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sign_in">Sign In</string>
+    <string name="still_don_t_have_account">Still don\'t have account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="posts">Posts</string>
+    <string name="posts_count">0</string>
+    <string name="bio">Bio</string>
+    <string name="create_your_account">Create your account.</string>
+    <string name="username">Username</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="choose_your_profile_picture">Choose your profile picture.</string>
+
+</resources>

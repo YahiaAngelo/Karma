@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/changelog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/window_background">
+    <RelativeLayout
+        android:id="@+id/about_angelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal">
+
+        <com.github.florent37.shapeofview.shapes.CircleView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/angelo_img"
+            android:background="@android:color/transparent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_desc"
+                android:src="@drawable/yahia_angelo" />
+        </com.github.florent37.shapeofview.shapes.CircleView>
+
+
+
+        <TextView
+            android:id="@+id/angelo_text"
+            style="@style/textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/angelo_img"
+            android:gravity="center_vertical"
+            android:text="@string/yahiaangelo"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/angelo_text"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/angelo_img"
+            android:textColor="@color/md_blue_grey_900"
+            android:text="@string/karma_app_developer"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</RelativeLayout>

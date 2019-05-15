@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.angelo.karma.classes.Post" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="18dp"
+        app:cardBackgroundColor="?attr/cardColor"
+        app:cardElevation="8dp"
+        app:rippleColor="@color/colorAccentBlueDark_50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/post_author"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal">
+
+                <com.github.florent37.shapeofview.shapes.CircleView
+                    android:id="@+id/author_pic_circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:transitionName="profile_pic"
+                    android:elevation="4dp">
+
+                    <ImageView
+                        android:id="@+id/author_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/image_desc"
+                        bind:postAuthorImage="@{post.postAuthorImage}" />
+
+
+                </com.github.florent37.shapeofview.shapes.CircleView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/post_author_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/primaryTextColor"
+                        android:textSize="18sp"
+                        tools:text="YahiaAngelo" />
+
+                    <TextView
+                        android:id="@+id/post_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:textSize="12sp"
+                        tools:text="10 hours ago" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/post_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.emoji.widget.EmojiTextView
+                    android:id="@+id/desc_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="15sp"
+                    tools:text="Hi XDA Im glad to present for you S9+/S9 port for our beloved phone S7E Some information you " />
+
+                <ImageView
+                    android:id="@+id/post_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/image_desc"
+                    android:fitsSystemWindows="true"
+                    bind:postImage="@{post.postImage}"
+                    android:scaleType="fitCenter"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <RelativeLayout
+                    android:id="@+id/post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/like_button"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/ripple"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:textAppearance="@drawable/ripple"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:textSize="14sp"
+                            app:icon="@drawable/thumbs_up"
+                            app:iconTint="?attr/secondaryButtonColor"
+                            app:rippleColor="?attr/primaryButtonColor"
+                            android:layout_marginStart="18dp"
+                            app:strokeWidth="0dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/dislike_button"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/ripple"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:textAppearance="@drawable/ripple"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:textSize="14sp"
+                            app:icon="@drawable/thumbs_down"
+                            app:iconTint="?attr/secondaryButtonColor"
+                            app:rippleColor="?attr/primaryButtonColor"
+                            app:strokeWidth="0dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/comment_button"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:background="@drawable/ripple"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:textAppearance="@drawable/ripple"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:textSize="14sp"
+                            app:icon="@drawable/ic_baseline_comment_24px"
+                            app:iconTint="?attr/secondaryButtonColor"
+                            app:rippleColor="?attr/primaryButtonColor" />
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:id="@+id/post_menu_button"
+                            android:layout_width="24dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ripple"
+                            app:icon="@drawable/ic__ionicons_svg_md_more"
+                            app:iconTint="?attr/secondaryButtonColor"
+                            app:rippleColor="?attr/primaryButtonColor" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

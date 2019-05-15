@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="karma" >
+        <attr name="backgroundColor" format="color"/>
+        <attr name="cardColor" format="color"/>
+        <attr name="primaryTextColor" format="color"/>
+        <attr name="secondaryTextColor" format="color"/>
+        <attr name="primaryButtonColor" format="color"/>
+        <attr name="secondaryButtonColor" format="color"/>
+        <attr name="accentColor" format="color"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,151 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="cardColor">@color/white</item>
+        <item name="primaryTextColor">@color/primary_dark</item>
+        <item name="secondaryTextColor">@color/primary_light</item>
+        <item name="primaryButtonColor">@color/primary_dark</item>
+        <item name="secondaryButtonColor">@color/primary_light</item>
+        <item name="accentColor">@color/accent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:titleTextColor">@color/primary_dark</item>
+        <item name="drawerArrowStyle">@style/MyDrawerArrowStyle</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+
+        <item name="android:windowEnterTransition">@android:transition/explode</item>
+        <item name="android:windowExitTransition">@android:transition/explode</item>
+
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/changebounds</item>
+        <item name="android:windowSharedElementExitTransition">@transition/changebounds</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+        <item name="backgroundColor">@color/darkColorBackground</item>
+        <item name="cardColor">@color/darkColorPrimary</item>
+        <item name="primaryTextColor">@color/darkPrimaryText</item>
+        <item name="secondaryTextColor">@color/darkSecondaryText</item>
+        <item name="primaryButtonColor">@color/darkPrimaryButton</item>
+        <item name="secondaryButtonColor">@color/darkSecondaryButton</item>
+        <item name="accentColor">@color/darkColorAccent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:titleTextColor">@color/darkPrimaryText</item>
+        <item name="drawerArrowStyle">@style/MyDrawerArrowStyleDark</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+
+
+        <item name="material_drawer_background">@color/darkColorBackground</item>
+        <item name="material_drawer_primary_text">@color/primary_dark</item>
+        <item name="material_drawer_primary_icon">@color/primary_dark</item>
+        <item name="material_drawer_secondary_text">@color/primary_light</item>
+        <item name="material_drawer_hint_text">@color/primary_light</item>
+        <item name="material_drawer_divider">@color/primary</item>
+        <item name="material_drawer_selected">@color/primary_light</item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/primary_light</item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected_text">@color/primary_dark</item>
+        <item name="material_drawer_header_selection_text">@color/primary_dark</item>
+        <item name="material_drawer_header_selection_subtext">@color/primary_light</item>
+        <item name="material_drawer_legacy_style">true</item> <!-- Enables legacy Material 1 style -->
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/changebounds</item>
+        <item name="android:windowSharedElementExitTransition">@transition/changebounds</item>
+
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+    <style name="SignupActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorAccentBlueDark_60</item>
+        <item name="colorPrimaryDark">@color/colorAccentBlueDark</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+
+
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/changebounds</item>
+        <item name="android:windowSharedElementExitTransition">@transition/changebounds</item>
+    </style>
+
+    <style name="LogInInput" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:colorFocusedHighlight">@color/colorAccentDark</item>
+        <item name="android:textColorHint">@color/colorAccentBlueDark_50</item>
+        <item name="boxStrokeColor">@color/colorAccentDark</item>
+
+    </style>
+
+    <style name="MyDrawerArrowStyle" parent="MaterialDrawer.DrawerArrowStyle">
+        <item name="color">@color/primary_dark</item>
+    </style>
+
+    <style name="MyDrawerArrowStyleDark" parent="MaterialDrawer.DrawerArrowStyle">
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="CustomDrawerTheme" parent="MaterialDrawerTheme.Light.TranslucentStatus">
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:titleTextColor">@color/colorAccentBlueDark</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="drawerArrowStyle">@style/MyDrawerArrowStyle</item>
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
+        <item name="android:windowContentTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/changebounds</item>
+        <item name="android:windowSharedElementExitTransition">@transition/changebounds</item>
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/material_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/colorAccentBlueDark</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_divider</item>
+        <item name="material_drawer_selected">@color/material_drawer_selected</item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/material_drawer_selected_legacy</item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected_text">@color/colorAccentBlueDark</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_header_selection_text</item>
+        <item name="material_drawer_header_selection_subtext">@color/colorAccentBlueDark_50</item>
+        <item name="material_drawer_legacy_style">true</item> <!-- Enables legacy Material 1 style -->
+    </style>
+
+
+    <style name="textStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+</resources>

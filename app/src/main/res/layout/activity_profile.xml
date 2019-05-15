@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/profile_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_collapseMode="parallax">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/follow_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="48dp"
+                        android:layout_marginEnd="33dp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:elevation="8dp"
+                        app:backgroundTint="@color/colorAccentBlueDark"
+                        app:cornerRadius="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Follow" />
+
+                    <com.github.florent37.shapeofview.shapes.CircleView
+                        android:id="@+id/circleView"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="48dp"
+                        android:backgroundTint="@color/md_white_1000"
+                        android:transitionName="profile_pic"
+                        android:elevation="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/profile_author_pic"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/image_desc"
+                            android:scaleType="centerCrop"
+                            tools:src="@drawable/yahia_angelo" />
+
+                    </com.github.florent37.shapeofview.shapes.CircleView>
+
+                    <TextView
+                        android:id="@+id/profile_author_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/colorAccentBlueDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/circleView"
+                        tools:text="Yahia Mostafa" />
+
+                    <TextView
+                        android:id="@+id/profile_author_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorAccentBlueDark_50"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_author_name"
+                        tools:text="\@\YahiaAngelo" />
+
+                    <androidx.emoji.widget.EmojiTextView
+                        android:id="@+id/profile_author_bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="33dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorAccentBlueDark"
+                        android:textSize="15sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_author_username"
+                        tools:text="Releasing Pluto Tape every Wednesday 🤟
+Follow Pluto Tapes on Spotify or YouTube for
+new music weekly!" />
+
+                    <TextView
+                        android:id="@+id/profile_followers_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="43dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorAccentDark"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_author_bio"
+                        tools:text="22.4K" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/followers"
+                        android:textColor="@color/colorAccentBlueDark_50"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_followers_num" />
+
+                    <TextView
+                        android:id="@+id/profile_following_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="43dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorAccentBlueLight"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_author_bio"
+                        tools:text="277" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/following"
+                        android:textColor="@color/colorAccentBlueDark_50"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/profile_following_num"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_following_num" />
+
+                    <TextView
+                        android:id="@+id/profile_posts_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="43dp"
+                        android:layout_marginEnd="48dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/posts_count"
+                        android:textColor="@color/colorAccentBlueDark"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_author_bio"
+                        tools:text="123" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/posts"
+                        android:textColor="@color/colorAccentBlueDark_50"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/profile_posts_num"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_posts_num" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/profile_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_collapseMode="pin" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_posts_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

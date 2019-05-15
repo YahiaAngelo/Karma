@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="comment"
+            type="com.angelo.karma.classes.Comment"/>
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.github.florent37.shapeofview.shapes.CircleView
+        android:id="@+id/circleView2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/comment_author_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:commentAuthorPic="@{comment.commentAuthorPic}"
+            android:contentDescription="@string/image_desc"
+            tools:src="@drawable/yahia_angelo" />
+
+
+    </com.github.florent37.shapeofview.shapes.CircleView>
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/circleView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_toEndOf="@+id/circleView2"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_borderColor="@color/colorAccentBlueDark_60"
+        app:shape_roundRect_bottomLeftRadius="15dp"
+        app:shape_roundRect_bottomRightRadius="15dp"
+        app:shape_roundRect_topLeftRadius="15dp"
+        app:shape_roundRect_topRightRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/circleView3"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/comment_author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="@color/colorAccentBlueDark_60"
+                android:textSize="15sp"
+                tools:text="FadyNasr" />
+
+            <androidx.emoji.widget.EmojiTextView
+                android:id="@+id/comment_desc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccentBlueDark"
+                tools:text=" shitty ass comment  shitty ass comment  shitty ass comment  shitty ass comment  shitty ass comment  shitty ass comment " />
+
+        </LinearLayout>
+
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+
+</RelativeLayout>
+</layout>

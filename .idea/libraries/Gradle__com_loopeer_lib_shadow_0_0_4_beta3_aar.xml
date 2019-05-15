@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.loopeer.lib:shadow:0.0.4-beta3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e3d17c56beee302819951f7e818b3c1e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e3d17c56beee302819951f7e818b3c1e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopeer.lib/shadow/0.0.4-beta3/801dfe6507f7f77d8c6ff03e91bdd18309457f67/shadow-0.0.4-beta3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

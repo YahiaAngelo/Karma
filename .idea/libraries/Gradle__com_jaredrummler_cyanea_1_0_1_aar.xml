@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jaredrummler:cyanea:1.0.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/835b738f2e40be95dbab1b095da910b5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/835b738f2e40be95dbab1b095da910b5/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jaredrummler/cyanea/1.0.1/cf95ad842eb941518e290677b7c7f6012d7c624b/cyanea-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.skydoves:needs:1.0.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c2289674405030caa3fb70dad722ba/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c2289674405030caa3fb70dad722ba/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.skydoves/needs/1.0.2/83f0ac59c5753314a0677c437d9a8067ab81f34b/needs-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

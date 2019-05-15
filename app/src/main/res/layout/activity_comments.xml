@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment_empty_text"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            tools:text="No comments yet!"/>
+
+        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/comment_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="54dp"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/comment_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/colorAccentDark"
+            android:fitsSystemWindows="true"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:SpinKit_Color="@color/colorAccentDark"
+            app:SpinKit_Style="ThreeBounce" />
+
+
+
+        <com.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/circleView3"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="bottom"
+            app:shape_roundRect_borderColor="@color/colorAccentBlueDark_60"
+            app:shape_roundRect_borderWidth="1dp"
+            app:shape_roundRect_bottomLeftRadius="20dp"
+            app:shape_roundRect_bottomRightRadius="20dp"
+            app:shape_roundRect_topLeftRadius="20dp"
+            app:shape_roundRect_topRightRadius="20dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <androidx.emoji.widget.EmojiEditText
+                    android:id="@+id/comment_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="10"
+                    android:background="@color/white"
+                    android:hint="@string/write_a_comment"
+                    android:maxLines="5"
+                    android:textColor="@color/colorAccentBlueDark"
+                    android:textColorHint="@color/colorAccentBlueDark_50" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/comment_send_button"
+                    android:layout_width="38dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:icon="@drawable/md_send"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/colorAccentDark"
+                    app:rippleColor="@color/colorAccentBlueDark_50" />
+
+            </LinearLayout>
+
+        </com.github.florent37.shapeofview.shapes.RoundRectView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

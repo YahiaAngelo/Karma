@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AddPostActivity">
+
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/add_post_image_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        android:backgroundTint="@color/colorAccentDark"
+        app:SpinKit_Color="@color/colorAccentDark"
+        app:SpinKit_Style="ThreeBounce"
+        android:fitsSystemWindows="true"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_post_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="18dp"
+        app:backgroundTint="@color/colorAccentDark"
+        android:text="@string/post"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="8dp"
+        android:textAllCaps="false"
+        app:cornerRadius="18dp"
+        app:rippleColor="@color/colorAccentBlueDark_50" />
+
+    <ImageView
+        android:id="@+id/close_image"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/white"
+        android:contentDescription="@string/image_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/md_close"
+        android:tint="@color/colorAccentDark"
+        app:layout_constraintEnd_toStartOf="@+id/add_post_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.github.florent37.shapeofview.shapes.CircleView
+        android:id="@+id/circleView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:elevation="4dp"
+        android:background="@drawable/ripple"
+        android:backgroundTint="@color/md_white_1000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/close_image">
+
+        <ImageView
+            android:id="@+id/addpost_author_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_desc"
+            android:scaleType="centerCrop" />
+
+
+    </com.github.florent37.shapeofview.shapes.CircleView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circleView"
+        app:layout_constraintTop_toBottomOf="@+id/add_post_button">
+
+        <androidx.emoji.widget.EmojiEditText
+            android:id="@+id/post_editText"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:layout_gravity="top"
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="@string/add_post_hint"
+            android:maxLines="5"
+            android:textColor="@color/colorAccentBlueDark"
+            android:textColorHint="@color/colorAccentBlueDark_60" />
+
+
+        <com.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/add_post_imageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:shape_roundRect_borderColor="@color/colorAccentDark"
+            app:shape_roundRect_borderWidth="2dp"
+            app:shape_roundRect_bottomLeftRadius="10dp"
+            app:shape_roundRect_bottomRightRadius="10dp"
+            app:shape_roundRect_topLeftRadius="10dp"
+            app:shape_roundRect_topRightRadius="10dp">
+
+            <ImageView
+                android:id="@+id/add_post_image"
+                android:contentDescription="@string/image_desc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:rippleColor="@color/colorAccentBlueDark_50"
+        app:srcCompat="@drawable/md_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

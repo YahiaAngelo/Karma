@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.afollestad:aesthetic:1.0.0-beta05@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/de621cee3d51a71bf674ce737421024f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/de621cee3d51a71bf674ce737421024f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.afollestad/aesthetic/1.0.0-beta05/b9d5ec58102327dba57310886e2cc30658ee24e/aesthetic-1.0.0-beta05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
