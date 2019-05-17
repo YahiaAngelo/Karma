@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.ashokvarma.android:bottom-navigation-bar:2.1.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d97c1b82dca235608c46121af659ac53/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac509dd81c9492600c7e1ee5820d8e50/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d97c1b82dca235608c46121af659ac53/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d97c1b82dca235608c46121af659ac53/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac509dd81c9492600c7e1ee5820d8e50/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac509dd81c9492600c7e1ee5820d8e50/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
