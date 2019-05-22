@@ -68,12 +68,11 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkUpdatesText.setText(getString(R.string.updates_check));
-                QueryUtils.getLatestUpdate(new OnLatestUpdateCheckListener() {
+                QueryUtils.getLatestUpdate(AboutActivity.this, new OnLatestUpdateCheckListener() {
                     @Override
                     public void onSuccess(String latestUpdate) {
-                        Double versionCode = Double.valueOf(BuildConfig.VERSION_NAME);
-                        Double latestVersion = Double.valueOf(latestUpdate);
-                        if (versionCode.equals(latestVersion)){
+                        String versionCode =BuildConfig.VERSION_NAME;
+                        if (versionCode.equals(latestUpdate)){
                             checkUpdatesText.setText(getString(R.string.uptodate));
                         }else {
                             AlertDialog.Builder builder = new AlertDialog.Builder(AboutActivity.this);

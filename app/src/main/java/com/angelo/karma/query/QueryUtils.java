@@ -2,12 +2,21 @@ package com.angelo.karma.query;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.angelo.karma.R;
 import com.angelo.karma.adapter.CommentAdapter;
 import com.angelo.karma.classes.Comment;
@@ -31,8 +40,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.MetadataChanges;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.TextHttpResponseHandler;
+
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +52,6 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-import cz.msebera.android.httpclient.Header;
 import eu.amirs.JSON;
 
 
@@ -125,45 +134,48 @@ public class QueryUtils {
         documentReference.addSnapshotListener(MetadataChanges.INCLUDE, new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                    for (int p =0; p < queryDocumentSnapshots.size(); ++p){
-                        DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(p);
-                        if (documentSnapshot.exists()){
-                            String postAuthor = followingList;
-                            Post post = new Post();
+                    if (queryDocumentSnapshots != null){
+                        for (int p =0; p < queryDocumentSnapshots.size(); ++p){
+                            DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(p);
+                            if (documentSnapshot.exists()){
+                                String postAuthor = followingList;
+                                Post post = new Post();
 
-                            String postAuthorImage = documentSnapshot.get("author_pic").toString();
-                            String postDesc = documentSnapshot.get("desc").toString();
-                            Long postTime = documentSnapshot.getLong("time");
-                            int postNum = Integer.valueOf(documentSnapshot.get("post_num").toString());
-                            String postImage = documentSnapshot.get("pic").toString();
-                            String postLike = documentSnapshot.get("likes").toString();
-                            String postDislike = documentSnapshot.get("dislikes").toString();
-                            Boolean postLiked = documentSnapshot.getBoolean("liked");
-                            Boolean hasPic = documentSnapshot.getBoolean("has_pic");
-                            List<String> likesList = (List<String>) documentSnapshot.get("likes_array");
-                            List<String> dislikesList = (List<String>) documentSnapshot.get("dislikes_array");
+                                String postAuthorImage = documentSnapshot.get("author_pic").toString();
+                                String postDesc = documentSnapshot.get("desc").toString();
+                                Long postTime = documentSnapshot.getLong("time");
+                                int postNum = Integer.valueOf(documentSnapshot.get("post_num").toString());
+                                String postImage = documentSnapshot.get("pic").toString();
+                                String postLike = documentSnapshot.get("likes").toString();
+                                String postDislike = documentSnapshot.get("dislikes").toString();
+                                Boolean postLiked = documentSnapshot.getBoolean("liked");
+                                Boolean hasPic = documentSnapshot.getBoolean("has_pic");
+                                List<String> likesList = (List<String>) documentSnapshot.get("likes_array");
+                                List<String> dislikesList = (List<String>) documentSnapshot.get("dislikes_array");
 
 
-                            post.setPostId(postTime);
-                            post.setPostAuthorName(postAuthor);
-                            post.setPostAuthorImage(postAuthorImage);
-                            post.setPostTime(postTime);
-                            post.setPostNum(postNum);
-                            post.setPostImage(postImage);
-                            post.setPostDesc(postDesc);
-                            post.setLikes(Integer.valueOf(postLike));
-                            post.setDislikes(Integer.valueOf(postDislike));
-                            post.setLiked(postLiked);
-                            post.setHasImage(hasPic);
-                            post.setLikes_list(likesList);
-                            post.setDislikes_list(dislikesList);
-                            postDatabase.postDao().save(post);
+                                post.setPostId(postTime);
+                                post.setPostAuthorName(postAuthor);
+                                post.setPostAuthorImage(postAuthorImage);
+                                post.setPostTime(postTime);
+                                post.setPostNum(postNum);
+                                post.setPostImage(postImage);
+                                post.setPostDesc(postDesc);
+                                post.setLikes(Integer.valueOf(postLike));
+                                post.setDislikes(Integer.valueOf(postDislike));
+                                post.setLiked(postLiked);
+                                post.setHasImage(hasPic);
+                                post.setLikes_list(likesList);
+                                post.setDislikes_list(dislikesList);
+                                postDatabase.postDao().save(post);
+
+
+                            }
 
 
                         }
-
-
                     }
+
                 }
             });
 
@@ -481,22 +493,39 @@ public class QueryUtils {
                 });
     }
 
-    public static void getLatestUpdate(OnLatestUpdateCheckListener listener){
-        AsyncHttpClient client = new AsyncHttpClient();
+    public static void getLatestUpdate(Context context, OnLatestUpdateCheckListener listener){
 
-        client.get(githubReleasesUrl, new TextHttpResponseHandler() {
+        RequestQueue mRequestQueue;
+
+        Cache cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024); // 1MB cap
+
+        Network network = new BasicNetwork(new HurlStack());
+
+        mRequestQueue = new RequestQueue(cache, network);
+
+        mRequestQueue.start();
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, githubReleasesUrl, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            public void onResponse(JSONObject response) {
+
+
+                JSON json = new JSON(response.toString());
+                String version = json.key("tag_name").stringValue();
+
+                listener.onSuccess(version);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
                 listener.onFailure();
             }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                JSON json =new JSON(responseString);
-                String latestVersion = json.key("tag_name").stringValue();
-                listener.onSuccess(latestVersion);
-            }
         });
+
+        mRequestQueue.add(jsonObjectRequest);
+
+
     }
 
     public static String getTimeAgo(long time) {
