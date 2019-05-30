@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,7 +26,12 @@ import com.angelo.karma.databinding.PostListBinding;
 import com.angelo.karma.interfaces.OnFetchCommentsCountListener;
 import com.angelo.karma.query.QueryUtils;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.google.firebase.auth.FirebaseAuth;
 import com.stfalcon.imageviewer.StfalconImageViewer;
@@ -39,6 +45,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -120,6 +127,31 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
         if (post.isHasImage()){
 
           Post.loadPostImage(holder.binding.postImg, post.getPostImage());
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+              Glide
+                      .with(holder.itemView.getContext())
+                      .asBitmap()
+                      .load(post.getPostImage())
+                      .listener(new RequestListener<Bitmap>() {
+                          @Override
+                          public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                              return false;
+                          }
+
+                          @Override
+                          public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                              if (resource != null){
+                                  Palette p = Palette.from(resource).generate();
+                                  int mutedColor = p.getDarkVibrantColor(holder.itemView.getContext().getColor(R.color.primary_dark));
+                                  holder.binding.postCard.setOutlineSpotShadowColor(mutedColor);
+                                  holder.binding.postCard.setOutlineAmbientShadowColor(mutedColor);
+                              }
+                              return false;
+                          }
+                      })
+                      .submit();
+          }
+
 
             holder.binding.postImg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -181,7 +213,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
         });
 
 
-        String username = mAuth.getCurrentUser().getDisplayName();
+           String username = mAuth.getCurrentUser().getDisplayName();
 
 
 

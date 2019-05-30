@@ -1,17 +1,25 @@
 package com.angelo.karma.classes;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
+import com.angelo.karma.R;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
+import androidx.palette.graphics.Palette;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -59,8 +67,6 @@ public class Post extends BaseObservable  {
         Glide
                 .with(view.getContext())
                 .load(imageUrl)
-                .circleCrop()
-                .fitCenter()
                 .override(Target.SIZE_ORIGINAL)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(view);
@@ -70,14 +76,29 @@ public class Post extends BaseObservable  {
     public static void loadPostImage(ImageView view, String imageUrl){
 
 
-        DrawableCrossFadeFactory factory =
-                new DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build();
+
         Glide
                 .with(view.getContext())
                 .asBitmap()
                 .load(imageUrl)
                 .override(Target.SIZE_ORIGINAL)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .listener(new RequestListener<Bitmap>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                        if (resource != null){
+                            Palette p = Palette.from(resource).generate();
+                            int mutedColor = p.getMutedColor(view.getContext().getColor(R.color.primary_dark));
+
+                        }
+                        return false;
+                    }
+                })
                 .into(view);
     }
 
@@ -137,12 +158,13 @@ public class Post extends BaseObservable  {
         this.postTime = postTime;
     }
 
-    public String getPostImage() {
-        return postImage;
-    }
-
     public void setPostImage(String postImage) {
         this.postImage = postImage;
+    }
+
+    @Bindable
+    public String getPostImage() {
+        return postImage;
     }
 
     @Bindable

@@ -25,6 +25,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:titleTextColor="@color/primary_dark"
             android:background="?attr/backgroundColor"
             app:layout_scrollFlags="scroll|enterAlways|snap" />
 
@@ -43,15 +44,45 @@
     </ProgressBar>
 
 
-
-    <com.ashokvarma.bottomnavigation.BottomNavigationBar
-        android:layout_gravity="bottom"
-        android:id="@+id/bottom_navigation_bar"
-        app:bnbBackgroundColor="?attr/backgroundColor"
-        app:bnbActiveColor="?attr/accentColor"
-        app:bnbInactiveColor="?attr/secondaryButtonColor"
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        android:id="@+id/bottom_navigation_view_linear"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:padding="8dp">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/accent"
+            app:bt_colorInactive="@color/colorAccentBlueDark_50"
+            app:bt_icon="@drawable/md_paper"
+            app:bt_title="Home" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/accent"
+            app:bt_colorInactive="@color/colorAccentBlueDark_50"
+            app:bt_icon="@drawable/add_circle"
+            app:bt_title="Post" />
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/accent"
+            app:bt_colorInactive="@color/colorAccentBlueDark_50"
+            app:bt_icon="@drawable/md_chatbubbles"
+            app:bt_title="Chat" />
+
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 
 
 

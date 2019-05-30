@@ -73,8 +73,8 @@ dependencies {
     implementation "com.mikepenz:iconics-views:3.2.2"
     implementation 'com.mikepenz:fontawesome-typeface:5.3.1.1@aar'
     implementation 'com.kyleduo.blurpopupwindow:blurpopupwindow:1.0.9'
-    implementation "com.github.stfalcon:chatkit:0.3.3"
-    implementation 'q.rorbin:badgeview:1.1.3'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation 'androidx.emoji:emoji:1.0.0'
     implementation 'androidx.emoji:emoji-bundled:1.0.0'
     implementation 'androidx.emoji:emoji-appcompat:1.0.0'
@@ -100,6 +100,10 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
 
+
 }
 
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

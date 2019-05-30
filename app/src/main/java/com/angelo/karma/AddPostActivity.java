@@ -79,6 +79,7 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
 
+
         postButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

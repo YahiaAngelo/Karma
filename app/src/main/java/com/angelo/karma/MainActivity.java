@@ -1,5 +1,6 @@
 package com.angelo.karma;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
@@ -11,6 +12,8 @@ import androidx.emoji.text.EmojiCompat;
 
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,17 +31,18 @@ import com.angelo.karma.activity.AboutActivity;
 import com.angelo.karma.activity.ProfileActivity;
 import com.angelo.karma.activity.SettingsActivity;
 import com.angelo.karma.classes.User;
-import com.angelo.karma.database.PostDatabase;
 import com.angelo.karma.fragment.MainFragment;
 import com.angelo.karma.interfaces.OnFetchUserListener;
 import com.angelo.karma.query.QueryUtils;
 
-import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+
 import com.bumptech.glide.Glide;
+import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -55,6 +59,7 @@ import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 
 
 import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,26 +96,12 @@ public class MainActivity extends AppCompatActivity {
 
         checkStoragePermission();
 
-        ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
-        Sprite doubleBounce = new DoubleBounce();
-        progressBar.setIndeterminateDrawable(doubleBounce);
-        progressBar.setVisibility(View.VISIBLE);
+        BubbleNavigationLinearView bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
+        bubbleNavigationLinearView.setCurrentActiveItem(0);
 
-        BottomNavigationBar bottomNavigationBar =  findViewById(R.id.bottom_navigation_bar);
-
-        bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.md_paper, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.add_circle, "Post"))
-                .addItem(new BottomNavigationItem(R.drawable.md_chatbubbles, "Chat"))
-                .setFirstSelectedPosition(0)
-                .setMode(BottomNavigationBar.MODE_FIXED)
-                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .initialise();
-
-
-        bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
-            public void onTabSelected(int position) {
+            public void onNavigationChanged(View view, int position) {
                 switch (position){
                     case 0:
                         break;
@@ -125,17 +116,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
-
-            @Override
-            public void onTabUnselected(int position) {
-
-            }
-
-            @Override
-            public void onTabReselected(int position) {
-
-            }
         });
+
+        ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
+        Sprite doubleBounce = new DoubleBounce();
+        progressBar.setIndeterminateDrawable(doubleBounce);
+        progressBar.setVisibility(View.VISIBLE);
+
+
 
 
 
@@ -286,11 +274,7 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
                                 break;
                             case 6:
-                                PostDatabase postDatabase = PostDatabase.getInstance(MainActivity.this);
-                                postDatabase.postDao().deleteAll();
-                                mAuth.signOut();
-                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                                finish();
+                                signOut();
                                 break;
                         }
                         return true;
@@ -313,6 +297,26 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Permission has already been granted
         }
+    }
+
+    private void signOut(){
+         mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+             @Override
+             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                 if (user == null){
+                     Intent mStartActivity = new Intent(MainActivity.this, LoginActivity.class);
+                     int mPendingIntentId = 696969;
+                     PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, mPendingIntentId, mStartActivity,
+                             PendingIntent.FLAG_CANCEL_CURRENT);
+                     AlarmManager mgr = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
+                     mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                     System.exit(0);
+                 }
+             }
+         });
+
+        mAuth.signOut();
     }
 
 

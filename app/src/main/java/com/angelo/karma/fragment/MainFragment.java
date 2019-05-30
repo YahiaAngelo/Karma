@@ -36,6 +36,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private PostAdapter postAdapter = new PostAdapter(new ArrayList<Post>());
     SwipeRefreshLayout swipeLayout;
     private FirebaseAuth mAuth;
+    public PostDatabase postDatabase;
 
     public MainFragment() {
         // Required empty public constructor
@@ -49,8 +50,10 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         View view = binding.getRoot();
 
 
-
+        postDatabase = PostDatabase.getInstance(getContext());
         swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
+        swipeLayout.setOnRefreshListener(this);
+
 
         PostViewModel postViewModel = ViewModelProviders.of(this).get(PostViewModel.class);
         mAuth = FirebaseAuth.getInstance();
@@ -58,7 +61,6 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
 
-        final PostDatabase postDatabase = PostDatabase.getInstance(getContext());
 
 
         RecyclerView recyclerView = (RecyclerView) binding.list;
@@ -67,30 +69,8 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         postAdapter.setData(postDatabase.postDao().findAll());
 
-        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                QueryUtils.fetchUserInfo(mAuth.getCurrentUser().getDisplayName(), new OnFetchUserListener() {
-                    @Override
-                    public void onSuccess(User user) {
-                        for (String following: user.following_list){
-                            QueryUtils.fetchPosts(getContext(), following);
-                        }
-                        postDatabase.postDao().deleteAll();
-                        postAdapter.setData(postDatabase.postDao().findAll());
-                        swipeLayout.setRefreshing(false);
-                    }
 
-                    @Override
-                    public void onFailure() {
-
-                    }
-                });
-
-
-            }
-        });
-
+        this.onRefresh();
 
         postViewModel.getAllPosts().observe(this, new Observer<List<Post>>() {
             @Override
@@ -117,6 +97,26 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @Override
     public void onRefresh() {
+        if (swipeLayout != null){
+            swipeLayout.setRefreshing(true);
+        }
 
+        QueryUtils.fetchUserInfo(mAuth.getCurrentUser().getDisplayName(), new OnFetchUserListener() {
+            @Override
+            public void onSuccess(User user) {
+                for (String following: user.following_list){
+                    QueryUtils.fetchPosts(getContext(), following);
+                }
+                postDatabase.postDao().deleteAll();
+                postAdapter.setData(postDatabase.postDao().findAll());
+                swipeLayout.setRefreshing(false);
+
+            }
+
+            @Override
+            public void onFailure() {
+
+            }
+        });
     }
 }

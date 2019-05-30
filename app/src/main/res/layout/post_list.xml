@@ -8,15 +8,20 @@
             type="com.angelo.karma.classes.Post" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/post_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
         app:cardCornerRadius="18dp"
         app:cardBackgroundColor="?attr/cardColor"
-        app:cardElevation="8dp"
+        app:cardElevation="28dp"
         app:rippleColor="@color/colorAccentBlueDark_50">
 
         <LinearLayout
@@ -45,7 +50,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/image_desc"
-                        bind:postAuthorImage="@{post.postAuthorImage}" />
+                        android:scaleType="fitCenter"
+                        app:postAuthorImage="@{post.postAuthorImage}" />
 
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
@@ -108,7 +114,7 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/image_desc"
                     android:fitsSystemWindows="true"
-                    bind:postImage="@{post.postImage}"
+                    app:postImage="@{post.postImage}"
                     android:scaleType="fitCenter"
                     tools:srcCompat="@tools:sample/avatars" />
 

@@ -9,9 +9,9 @@
         <item name="backgroundColor">@color/white</item>
         <item name="cardColor">@color/white</item>
         <item name="primaryTextColor">@color/primary_dark</item>
-        <item name="secondaryTextColor">@color/primary_light</item>
+        <item name="secondaryTextColor">@color/colorAccentBlueDark_50</item>
         <item name="primaryButtonColor">@color/primary_dark</item>
-        <item name="secondaryButtonColor">@color/primary_light</item>
+        <item name="secondaryButtonColor">@color/colorAccentBlueDark_50</item>
         <item name="accentColor">@color/accent</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:titleTextColor">@color/primary_dark</item>
@@ -21,8 +21,8 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
 
-        <item name="android:windowEnterTransition">@android:transition/explode</item>
-        <item name="android:windowExitTransition">@android:transition/explode</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
 
 
         <!-- specify shared element transitions -->
@@ -52,14 +52,14 @@
         <item name="material_drawer_background">@color/darkColorBackground</item>
         <item name="material_drawer_primary_text">@color/primary_dark</item>
         <item name="material_drawer_primary_icon">@color/primary_dark</item>
-        <item name="material_drawer_secondary_text">@color/primary_light</item>
-        <item name="material_drawer_hint_text">@color/primary_light</item>
+        <item name="material_drawer_secondary_text">@color/colorAccentBlueDark_50</item>
+        <item name="material_drawer_hint_text">@color/colorAccentBlueDark_50</item>
         <item name="material_drawer_divider">@color/primary</item>
-        <item name="material_drawer_selected">@color/primary_light</item> <!-- Material 2 defines 12% alpha, primary color -->
-        <item name="material_drawer_selected_legacy">@color/primary_light</item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected">@color/colorAccentBlueDark_50</item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/colorAccentBlueDark_50</item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
         <item name="material_drawer_selected_text">@color/primary_dark</item>
         <item name="material_drawer_header_selection_text">@color/primary_dark</item>
-        <item name="material_drawer_header_selection_subtext">@color/primary_light</item>
+        <item name="material_drawer_header_selection_subtext">@color/colorAccentBlueDark_50</item>
         <item name="material_drawer_legacy_style">true</item> <!-- Enables legacy Material 1 style -->
 
         <!-- specify shared element transitions -->
