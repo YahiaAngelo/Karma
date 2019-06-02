@@ -42,7 +42,7 @@ The developer doesn't collect usage data.
 The developer distributes this software via mediums where download counts are not maintained. Therefore, the developer has no knowledge or way to acquire knowledge about a user that has installed or is using this software. 
 
 ## Crash reports
-The developer is unable to get crash reports automatically when the app crashes. If you encounter a bug that caused the app to crash, please report it to the developer.  
+The developer is able to get crash reports automatically when the app crashes.
 Karma is a project under active development and the developer needs to get information when it doesn't work, to make it work. If you encounter any error while using the software, please open an [issue](https://github.com/YahiaAngelo/Karma/issues/new) on GitHub and it will be fixed. In a case where the app crashes, try to include logcats in your reports, when possible.
 
 ## Service Providers
